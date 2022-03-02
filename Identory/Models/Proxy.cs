@@ -10,7 +10,6 @@ namespace Identory.Models
     {
         public Proxy()
         {
-
         }
 
         public Proxy(ProxyType proxyType, string proxyHost, string proxyPort)

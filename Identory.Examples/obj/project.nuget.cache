@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "V5feahi+jYH7ZP52/E5/gbDiFLj6Z28FO5rhRm14Sp1iIfisQK8A2vLmfXnEA2mKwUg348N8xY0KgbbbC7IpAg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Steve\\source\\Identory\\Identory.Examples\\Identory.Example.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Steve\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

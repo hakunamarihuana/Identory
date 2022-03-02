@@ -11,7 +11,6 @@ namespace Identory.Models.Profile
 
         internal DesktopProfile()
         {
-
         }
 
         [JsonIgnore]

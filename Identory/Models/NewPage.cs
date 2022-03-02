@@ -6,12 +6,11 @@ namespace Identory.Models
     [Serializable]
     public sealed class NewPage
     {
-        public NewPage()
+        internal NewPage()
         {
-
         }
 
-        public NewPage(string pageId)
+        internal NewPage(string pageId)
         {
             PageId = pageId;
         }

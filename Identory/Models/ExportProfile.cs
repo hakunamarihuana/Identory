@@ -8,8 +8,8 @@ namespace Identory.Models
     {
         public ExportProfile()
         {
-
         }
+
         public ExportProfile(string filePath)
         {
             FilePath = filePath;

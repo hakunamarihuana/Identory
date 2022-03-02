@@ -9,6 +9,7 @@ namespace Identory.Models
         public IdentoryError()
         {
         }
+
         internal IdentoryError(string message, params string[]? errors)
         {
             Message = message;

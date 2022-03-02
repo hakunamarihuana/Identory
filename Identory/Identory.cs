@@ -9,6 +9,7 @@ namespace Identory
     public class Identory
     {
         public ProfileEndpoint Profile { get; }
+
         public ToolsEndpoint Tools { get; }
 
         private ChildProcessManager windowsChildProcessManager;

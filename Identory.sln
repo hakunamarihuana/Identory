@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identory", "Identory.csproj", "{BEB62F22-87E8-45D8-A91B-CF99E2F0EC4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identory", "Identory/Identory.csproj", "{BEB62F22-87E8-45D8-A91B-CF99E2F0EC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identory.Example", "..\Identory.Example\Identory.Example.csproj", "{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identory.Example", "Identory.Examples\Identory.Example.csproj", "{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

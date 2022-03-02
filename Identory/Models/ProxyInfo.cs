@@ -4,7 +4,7 @@ using System;
 namespace Identory.Models
 {
     [Serializable]
-    public sealed class IPInfo
+    public sealed class ProxyInfo
     {
         [JsonProperty("result")]
         public bool WasSuccessful { get; } = false;
