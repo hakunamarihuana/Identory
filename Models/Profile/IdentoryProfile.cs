@@ -9,6 +9,7 @@ namespace Identory.Models.Profile
     [Serializable]
     public class IdentoryProfile
     {
+
         [JsonIgnore]
         public DeviceType DeviceType { get; private set; }
 
@@ -80,7 +81,7 @@ namespace Identory.Models.Profile
 
         //[JsonProperty("windowSizeIsSet")]
         //public bool WindowSizeIsSet { get; }
-        #region Proxy
+        #region ProxySettings
         [JsonProperty("useProxy", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ProxyUse? UsedProxyType { get; set; }
 
@@ -128,7 +129,7 @@ namespace Identory.Models.Profile
         public bool AutoDetectIp { get; set; } = true;
 
         [JsonProperty("autoDetectAll")]
-        public bool AutoDetectAll { get; set; } = false;
+        public bool AutoDetectAll { get; set; } = true;
         #endregion
 
         /// <summary>
@@ -195,7 +196,7 @@ namespace Identory.Models.Profile
         public bool? UseCustomUserAgent { get; set; }
 
         [JsonProperty("userAgent", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string? UserAgent { get; set; }
+        public string? CustomUserAgent { get; set; }
 
         [JsonProperty("customWebGLParameters", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool? UseCustomWebGlParameters { get; set; }

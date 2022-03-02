@@ -4,6 +4,16 @@ namespace Identory.Models.Profile
 {
     public class DesktopProfile : IdentoryProfile
     {
+        public DesktopProfile(string name)
+        {
+            Name = name;
+        }
+
+        internal DesktopProfile()
+        {
+
+        }
+
         [JsonIgnore]
         public bool IsLandScape { get; private set; }
 

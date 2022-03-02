@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identory", "Identory.csproj", "{BEB62F22-87E8-45D8-A91B-CF99E2F0EC4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identory.Example", "..\Identory.Example\Identory.Example.csproj", "{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BEB62F22-87E8-45D8-A91B-CF99E2F0EC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEB62F22-87E8-45D8-A91B-CF99E2F0EC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEB62F22-87E8-45D8-A91B-CF99E2F0EC4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9AF7FE8-4649-45D0-BD53-F1D92137BC41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,15 @@ namespace Identory.Models.Profile
 {
     public class MobileProfile : IdentoryProfile
     {
+        internal MobileProfile()
+        {
+        }
+
+        public MobileProfile(string name)
+        {
+            Name = name;
+        }
+
         [JsonProperty("isLandscape", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsLandScape { get; set; }
 
