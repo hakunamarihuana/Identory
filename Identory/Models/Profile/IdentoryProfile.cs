@@ -7,9 +7,8 @@ using System;
 namespace Identory.Models.Profile
 {
     [Serializable]
-    public class IdentoryProfile
+    public class IdentoryProfile : BaseProfile
     {
-
         [JsonIgnore]
         public DeviceType DeviceType { get; private set; }
 
@@ -29,17 +28,11 @@ namespace Identory.Models.Profile
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("uponStartup", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public StartupAction? OnStartUp { get; set; }
 
         [JsonProperty("startPageURL", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string? StartupPageURL { get; set; }
 
-        [JsonProperty("platform", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public Platform? Platform { get; set; }
-
+        
         [JsonProperty("platformVersion", DefaultValueHandling = DefaultValueHandling.Ignore)]
         [JsonConverter(typeof(StringEnumConverter))]
         public PlatformVersion? PlatformVersion { get; set; }
@@ -102,9 +95,7 @@ namespace Identory.Models.Profile
         public string? ProxyPassword { get; set; }
         #endregion
 
-        /// <summary>
-        /// Make sure to disable <see cref="AutoDetectTimezone"/> before setting a custom timezone.
-        /// </summary>
+
         [JsonProperty("timezone", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string? Timezone { get; set; }
 
@@ -127,11 +118,7 @@ namespace Identory.Models.Profile
 
         [JsonProperty("autoDetectIp")]
         public bool AutoDetectIp { get; set; } = true;
-
-        [JsonProperty("autoDetectAll")]
-        public bool AutoDetectAll { get; set; } = true;
         #endregion
-
         /// <summary>
         /// Make sure to disable <see cref="AutoDetectIp"/> before setting webRTCRemoteIP;
         /// </summary>
@@ -140,36 +127,6 @@ namespace Identory.Models.Profile
 
         [JsonProperty("disableWebRTC", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool? DisableWebRTC { get; set; }
-
-        [JsonProperty("enableSwiftshader", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? EnableSwiftshader { get; set; }
-
-        [JsonProperty("enableWebGL2", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? EnableWebGL2 { get; set; }
-
-        [JsonProperty("randomizedRenderer", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? RandomizedRenderer { get; set; }
-
-        [JsonProperty("randomizedMediaDevices", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? RandomizedMediaDevices { get; set; }
-
-        [JsonProperty("replaceBatteryState", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? ReplaceBatteryState { get; set; }
-
-        [JsonProperty("modifyAudioChannelData", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? ModifyAudioChannelData { get; set; }
-
-        [JsonProperty("modifyWebGLBufferData", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? ModifyWebGLBufferData { get; set; }
-
-        [JsonProperty("modifyCanvasHash", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? ModifyCanvasHash { get; set; }
-
-        [JsonProperty("modifyClientRects", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? ModifyClientRects { get; set; }
-
-        [JsonProperty("enableFontListMasking", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool? EnableFontListMasking { get; set; }
 
         [JsonProperty("videoInputs", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int? VideoInputsCount { get; set; }
