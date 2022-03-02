@@ -8,7 +8,6 @@ namespace Identory
 {
     public class Identory
     {
-        public static string ApiVersion { get; set; } = "v1";
         public ProfileEndpoint Profile { get; }
         public ToolsEndpoint Tools { get; }
 
@@ -29,7 +28,7 @@ namespace Identory
             Tools = new ToolsEndpoint(endpoint);
         }
 
-        internal Identory(ushort apiPort) : this($"http://localhost:{apiPort}/api/{ApiVersion}") { }
+        internal Identory(ushort apiPort, int apiVersion) : this($"http://localhost:{apiPort}/api/v{apiVersion}") { }
 
 
         private void OnIdentoryProccessExited()
@@ -44,10 +43,10 @@ namespace Identory
         /// <param name="bindIdentoryToProcess">Close indentory when the program who has intitialized it closes.</param>
         /// <param name="customStartPath"></param>
         /// <returns>Instance of <see cref="Identory"/></returns>
-        public static async Task<Identory?> StartIdentory(string accessToken, ushort apiPort = 3005, bool bindIdentoryToProcess = false, string customStartPath = "")
+        public static async Task<Identory?> StartIdentory(string accessToken, ushort apiPort = 3005, int apiVersion = 1, bool bindIdentoryToProcess = false, string customStartPath = "")
         {
 
-            var identory = new Identory(apiPort);
+            var identory = new Identory(apiPort, apiVersion);
 
 
             string startPath;
