@@ -45,4 +45,4 @@ error =>
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See [LICENSE.txt](https://raw.githubusercontent.com/hakunamarihuana/Identory/master/LICENSE) for more information.
