@@ -1,6 +1,5 @@
 ﻿using Identory.Helpers;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -9,7 +8,7 @@ namespace Identory
 {
     public class Identory
     {
-        private static string apiVersion = "v1";
+        public static string ApiVersion { get; set; } = "v1";
         public ProfileEndpoint Profile { get; }
         public ToolsEndpoint Tools { get; }
 
@@ -30,7 +29,7 @@ namespace Identory
             Tools = new ToolsEndpoint(endpoint);
         }
 
-        internal Identory(ushort apiPort) : this($"http://localhost:{apiPort}/api/{apiVersion}") { }
+        internal Identory(ushort apiPort) : this($"http://localhost:{apiPort}/api/{ApiVersion}") { }
 
 
         private void OnIdentoryProccessExited()
