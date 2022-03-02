@@ -11,7 +11,8 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 This library is quite small and has been built with simplicity in mind. 
-By following the [official documentation](https://docs.identory.com/) figure things out should be rather easy. If you happen to run into any problems or find something confusing, feel free to open up an [issue](https://github.com/hakunamarihuana/Identory/issues) on GitHub.
+By following the [official documentation](https://docs.identory.com/) figuring things out should be rather easy.
+If you happen to run into any problems or find something confusing, feel free to open up an [issue](https://github.com/hakunamarihuana/Identory/issues) on GitHub.
 
 This is a simple example that shows creating and starting a profile using the wrapper to get you started. 
 ```csharp
