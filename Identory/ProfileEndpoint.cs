@@ -92,7 +92,7 @@ namespace Identory
         public Task<IdentoryOption<MobileProfile, IdentoryError>> UpsertProfile(MobileProfile profile) => UpsertProfile<MobileProfile>(profile);
         public Task<IdentoryOption<DesktopProfile, IdentoryError>> UpsertProfile(DesktopProfile profile) => UpsertProfile<DesktopProfile>(profile);
 
-        private async Task<IdentoryOption<ProfileType, IdentoryError>> UpsertProfile<ProfileType>(IdentoryProfile profile) where ProfileType : IdentoryProfile
+        public async Task<IdentoryOption<ProfileType, IdentoryError>> UpsertProfile<ProfileType>(ProfileType profile) where ProfileType : IdentoryProfile
         {
             try
             {
