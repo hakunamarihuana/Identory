@@ -8,8 +8,8 @@ namespace Identory
 {
     public class Identory
     {
+        public SettingsEndpoint Settings { get; }
         public ProfileEndpoint Profile { get; }
-
         public ToolsEndpoint Tools { get; }
 
         private ChildProcessManager windowsChildProcessManager;
@@ -27,14 +27,13 @@ namespace Identory
 
             Profile = new ProfileEndpoint(endpoint);
             Tools = new ToolsEndpoint(endpoint);
+            Settings = new SettingsEndpoint(endpoint);
         }
 
         internal Identory(ushort apiPort, int apiVersion) : this($"http://localhost:{apiPort}/api/v{apiVersion}") { }
 
-
         private void OnIdentoryProccessExited()
         {
-
         }
         /// <summary>
         /// Starts and connects to a locally based Identory browser.
