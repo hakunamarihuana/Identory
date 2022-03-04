@@ -6,6 +6,9 @@ namespace Identory.Models.Profile
 {
     public abstract class BaseProfile
     {
+        [JsonProperty("screenSize", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public DefaultDesktopScreenSize ScreenSize { get; set; }
+
         [JsonProperty("uponStartup", DefaultValueHandling = DefaultValueHandling.Ignore)]
         [JsonConverter(typeof(StringEnumConverter))]
         public StartupAction? OnStartUp { get; set; }
