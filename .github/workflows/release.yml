@@ -1,7 +1,7 @@
 name: Release
 
 on:
-  pull_request:
+  push:
     branches: [ release ]
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
       
@@ -26,6 +26,7 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
+        automatic_release_tag: "latest"
         files: |
           LICENSE.txt
-          *.dll
+          /home/runner/work/Identory/Identory/Identory/bin/Release/netstandard2.1/*.dll
