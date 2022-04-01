@@ -9,7 +9,7 @@ namespace Identory
 {
     public class ToolsEndpoint : IdentoryEndpoint
     {
-        public ToolsEndpoint(string endpoint) : base(endpoint)
+        public ToolsEndpoint(string endpoint, HttpClient? httpClient = null) : base(endpoint, httpClient)
         {
         }
         /// <summary>

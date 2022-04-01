@@ -1,6 +1,7 @@
 ﻿using Identory.Helpers;
 using System;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
@@ -18,37 +19,39 @@ namespace Identory
         /// Base constructor.
         /// </summary>
         /// <param name="endpoint"></param>
-        private Identory(string endpoint)
+        /// <param name="httpClient">Consumer specified HttpClient.</param>
+        private Identory(string endpoint, HttpClient? httpClient = null)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 windowsChildProcessManager = new ChildProcessManager();
             }
 
-            Profile = new ProfileEndpoint(endpoint);
-            Tools = new ToolsEndpoint(endpoint);
-            Settings = new SettingsEndpoint(endpoint);
+            Profile = new ProfileEndpoint(endpoint, httpClient);
+            Tools = new ToolsEndpoint(endpoint, httpClient);
+            Settings = new SettingsEndpoint(endpoint, httpClient);
         }
 
-        internal Identory(ushort apiPort, int apiVersion) : this($"http://localhost:{apiPort}/api/v{apiVersion}") { }
+        internal Identory(ushort apiPort, int apiVersion, HttpClient? httpClient = null) : this($"http://localhost:{apiPort}/api/v{apiVersion}", httpClient) { }
 
         private void OnIdentoryProccessExited()
         {
         }
+
         /// <summary>
         /// Starts and connects to a locally based Identory browser.
         /// </summary>
         /// <param name="accessToken"></param>
         /// <param name="apiPort"></param>
-        /// <param name="bindIdentoryToProcess">Close indentory when the program who has intitialized it closes.</param>
+        /// <param name="bindIdentoryToProcess">Close indentory when the program that has initialized it closes.</param>
         /// <param name="customStartPath"></param>
+        /// <param name="httpClient">Consumer specified HttpClient.</param>
         /// <returns>Instance of <see cref="Identory"/></returns>
-        public static async Task<Identory?> StartIdentory(string accessToken, ushort apiPort = 3005, int apiVersion = 1, bool bindIdentoryToProcess = false, string customStartPath = "")
+        public static async Task<Identory?> StartIdentory(string accessToken, ushort apiPort = 3005, int apiVersion = 1, bool bindIdentoryToProcess = false, string customStartPath = "", HttpClient? httpClient = null)
         {
 
             var identory = new Identory(apiPort, apiVersion);
-
-
+            
             string startPath;
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -108,9 +111,9 @@ namespace Identory
         /// </summary>
         /// <param name="endpoint">Full endpoint with port and api version.</param>
         /// <returns></returns>
-        public static Identory ConnectToIdentory(string endpoint, int apiVersion = 1)
+        public static Identory ConnectToIdentory(string endpoint, int apiVersion = 1, HttpClient? httpClient = null)
         {
-            return new Identory($"{endpoint}/api/v{apiVersion}");
+            return new Identory($"{endpoint}/api/v{apiVersion}", httpClient);
         }
 
         private static void Process_Exited(object sender, EventArgs e, Identory instance)
