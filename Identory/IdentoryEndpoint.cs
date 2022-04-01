@@ -6,10 +6,16 @@ namespace Identory
 {
     public abstract class IdentoryEndpoint
     {
-        internal IdentoryEndpoint(string endpoint)
+        internal IdentoryEndpoint(string endpoint, HttpClient? httpClient = null)
         {
             Endpoint = endpoint;
-            HttpClient = new HttpClient();
+            HttpClient = httpClient;
+            
+            if (HttpClient == null)
+            {
+                HttpClient = new HttpClient();
+            }
+            
         }
 
         protected string Endpoint { get; }

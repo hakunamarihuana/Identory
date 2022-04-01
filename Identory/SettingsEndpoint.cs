@@ -11,7 +11,7 @@ namespace Identory
 {
     public class SettingsEndpoint : IdentoryEndpoint
     {
-        public SettingsEndpoint(string endpoint) : base(endpoint)
+        public SettingsEndpoint(string endpoint, HttpClient? httpClient = null) : base(endpoint, httpClient)
         {
         }
 
@@ -25,7 +25,7 @@ namespace Identory
                 var result = await HttpClient.PutAsync($"{Endpoint}/settings/default-profile", httpContent);
 
 
-                return VerifyResponse(result).Match<IdentoryOption<DefaultProfile, IdentoryError>>(successful =>
+                return VerifyResponse(result).Match(successful =>
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
                     var token = JToken.Parse(response);

@@ -13,7 +13,7 @@ namespace Identory
 {
     public class ProfileEndpoint : IdentoryEndpoint
     {
-        public ProfileEndpoint(string endpoint) : base(endpoint)
+        public ProfileEndpoint(string endpoint, HttpClient? httpClient = null) : base(endpoint, httpClient)
         {
         }
 
@@ -23,7 +23,7 @@ namespace Identory
             {
                var result = await HttpClient.GetAsync($"{Endpoint}/profiles");
 
-               return VerifyResponse(result).Match<IdentoryOption<IEnumerable<UnknownProfile>, IdentoryError>>(successful =>
+               return VerifyResponse(result).Match(successful =>
                 {
                     var response =  successful.Content.ReadAsStringAsync().Result;
                     var token = JToken.Parse(response);
@@ -60,7 +60,7 @@ namespace Identory
             {
                 var result = await HttpClient.GetAsync($"{Endpoint}/profiles/{profileId}");
 
-                return VerifyResponse(result).Match<IdentoryOption<UnknownProfile, IdentoryError>>(successful =>
+                return VerifyResponse(result).Match(successful =>
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
                     var token = JToken.Parse(response);
@@ -189,7 +189,7 @@ namespace Identory
             {
                 var result = await HttpClient.PostAsync($"{Endpoint}/profiles/{profileId}/start", null);
 
-                return VerifyResponse(result).Match<IdentoryOption<BrowserStart, IdentoryError>>(successful =>
+                return VerifyResponse(result).Match(successful =>
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
 
@@ -225,7 +225,7 @@ namespace Identory
             {
                 var result = await HttpClient.PostAsync($"{Endpoint}/profiles/{profileId}/new-page", null);
 
-                return VerifyResponse(result).Match<IdentoryOption<NewPage, IdentoryError>>(successful =>
+                return VerifyResponse(result).Match(successful =>
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
                     var token = JToken.Parse(response);
@@ -263,7 +263,7 @@ namespace Identory
                 var httpContent = new StringContent(serializedRequest, Encoding.UTF8, "application/json");
                 var result = await HttpClient.PostAsync($"{Endpoint}/profiles/{profileId}/export", httpContent);
 
-                return VerifyResponse(result).Match<IdentoryOption<byte[], IdentoryError>>(successful =>
+                return VerifyResponse(result).Match(successful =>
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
                     var token = JToken.Parse(response);
@@ -307,7 +307,7 @@ namespace Identory
 
                 var result = await HttpClient.PostAsync($"{Endpoint}/profiles/import", httpContent);
 
-                return VerifyResponse(result).Match<IdentoryOption<IdentoryProfile, IdentoryError>>(successful =>
+                return VerifyResponse(result).Match(successful =>
                 {
                     var response = result.Content.ReadAsStringAsync().Result;
                     var token = JToken.Parse(response);
